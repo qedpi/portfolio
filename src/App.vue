@@ -6,21 +6,24 @@
           <portfolio-header></portfolio-header>
         </header>
 
-        <portfolio-jumbotron></portfolio-jumbotron>
+        <nav class="navbar navbar-inverse bg-inverse">
+          <a class="navbar-brand" href="#">
+            <img id="logo" src="./assets/logo.png">
+          </a>
+          <ul class="navbar-nav mr-auto" id="nav-items">
+            <li v-for="nav_option of nav_options"
+                @click="nav_selected = nav_option"
+                :class="{'nav-selected': nav_selected === nav_option}" class="nav-item">
+              <a href="#" class="nav-link">
+                {{nav_option}}
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-        <ul>
-          <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-          <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-          <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-          <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-        </ul>
-        <h2>Ecosystem</h2>
-        <ul>
-          <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-          <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-          <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-          <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-        </ul>
+        <transition name="fade">
+          <portfolio-projects v-if="nav_selected === 'Projects'"></portfolio-projects>
+        </transition>
       </div>
     </transition>
   </div>
@@ -28,22 +31,27 @@
 
 <script>
   import PortfolioHeader from './PortfolioHeader.vue'
-  import PortfolioJumbotron from './PortfolioJumbotron.vue'
+  import PortfolioProjects from './PortfolioProjects.vue'
 
   export default {
     name: 'app',
     components: {
       PortfolioHeader,
-      PortfolioJumbotron,
+      PortfolioProjects,
     },
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App',
         fully_rendered: false,
+        nav_options: ['Projects', 'Skills', 'Tech Journal', 'Youtube', 'Creative'],
+        nav_selected: 'Projects',
+        nav_selected_style: {'border': 'lightgreen .1em solid'}
       }
     },
     methods: {
-      
+
+    },
+    mounted(){
+      this.fully_rendered = true;
     },
   }
 </script>
@@ -55,9 +63,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
   }
-
 
   ul {
     list-style-type: none;
@@ -79,4 +85,33 @@
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
   }
+
+  #logo {
+    height: 3rem;
+  }
+
+  nav {
+    margin-top: -1rem;
+  }
+
+  .navbar-nav {
+    display: inline;
+  }
+
+  .nav-selected {
+    border-bottom: lightgreen .1em solid;
+  }
+
+  #nav-items {
+    color: lightgreen;
+  }
+
+  .nav-item {
+    font-size: 20px;
+  }
+
+  .nav-item:hover {
+    border-bottom: lightblue .1em solid;
+  }
+
 </style>
