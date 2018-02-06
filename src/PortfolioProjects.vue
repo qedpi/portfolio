@@ -28,10 +28,10 @@
               <hr>
               <div id="icons">
                 <a :href="project.git" target="_blank">
-                  <i class="fa fa-github"></i>
+                  <i class="fab fa-github"></i>
                 </a>
                 <a :href="project.website" target="_blank">
-                  <i class="fa fa-link"></i>
+                  <i class="fab fa-link"></i>
                 </a>
               </div>
             </div>
@@ -43,6 +43,12 @@
 </template>
 
 <script>
+
+  /*
+  new Vue()
+  import BookBlock from 'vue-bookblock'
+  Vue.use(BookBlock)
+  */
   export default {
     name: "portfolio-jumbotron",
     data() {

@@ -23,7 +23,9 @@
 
         <transition name="fade">
           <portfolio-projects v-if="nav_selected === 'Projects'"></portfolio-projects>
+          <portfolio-skills v-else-if="nav_selected === 'Skills'"></portfolio-skills>
         </transition>
+
       </div>
     </transition>
   </div>
@@ -32,19 +34,21 @@
 <script>
   import PortfolioHeader from './PortfolioHeader.vue'
   import PortfolioProjects from './PortfolioProjects.vue'
+  import PortfolioSkills from './PortfolioSkills.vue'
 
   export default {
     name: 'app',
     components: {
       PortfolioHeader,
       PortfolioProjects,
+      PortfolioSkills,
     },
     data() {
       return {
         fully_rendered: false,
         nav_options: ['Projects', 'Skills', 'Tech Journal', 'Youtube', 'Creative'],
-        nav_selected: 'Projects',
-        nav_selected_style: {'border': 'lightgreen .1em solid'}
+        nav_selected: 'Skills',
+        nav_selected_style: {'border': 'lightgreen .1em solid'},
       }
     },
     methods: {
