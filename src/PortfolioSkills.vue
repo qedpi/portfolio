@@ -48,7 +48,7 @@
           'Web Development': {'Vue.js': 2, 'Django': 2, 'JS / ES7': 3, 'HTML5': 2, 'CSS3': 1},
           'Data Science': {'Pandas': 1, 'SQL': 1, 'NumPy & SciPy': 1, 'Matplotlib': 1, 'Jupyter': 0},
           'Machine Learning': {'Tensorflow': 1, 'scikit-learn': 0},
-          'Theory': {'Algorithms & Data Structures': 3, 'Statistics': 1, 'Calculus': 2},
+          'Theory': {'Algorithms & Data Structures': 3, 'Statistics': 1, 'Calculus': 2, 'Linear Algebra': 1},
         }
       }
     },
